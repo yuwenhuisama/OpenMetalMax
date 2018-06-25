@@ -7,3 +7,6 @@ cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
+Iris2D/.gitattributes
+Iris2D/.gitignore
+Iris2D/cmake-build-debug/Iris2D_Cherry_Spinach.cbp
