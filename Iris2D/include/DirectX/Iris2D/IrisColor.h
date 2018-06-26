@@ -1,7 +1,7 @@
 #ifndef _H_IRISCOLOR_
 #define _H_IRISCOLOR_
 
-#include "../IrisCommon.h"
+#include "DirectX/IrisCommon.h"
 #include "Iris2D Util/IrisRefCounter.h"
 
 namespace Iris2D
@@ -15,11 +15,11 @@ namespace Iris2D
 	*/
 	/**
 	* \~chinese
-	* Iris 2D Color Àà
+	* Iris 2D Color ï¿½ï¿½
 	*
-	* Ò»¸ö Color ÊÇÒ»¸ö°üÀ¨ R/G/B/A ÊôÐÔµÄ¶ÔÏó¡£
+	* Ò»ï¿½ï¿½ Color ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ R/G/B/A ï¿½ï¿½ï¿½ÔµÄ¶ï¿½ï¿½ï¿½
 	*
-	* Color Ã¿¸öÊôÐÔ¶¼ÊÇÒ»¸ö½éÓÚ [0, 255] µÄ byte ¡£
+	* Color Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [0, 255] ï¿½ï¿½ byte ï¿½ï¿½
 	*/
 	class IrisColor : public IrisRefCounter
 	{
@@ -39,8 +39,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ´´½¨Ò»¸ö Color ¶ÔÏó¡£
-		* @return Èç¹û Color ¶ÔÏó´´½¨³É¹¦ÄÇÃ´·µ»ØËüµÄÖ¸Õë·ñÔò·µ»Ø nullptr¡£
+		* ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ Color ï¿½ï¿½ï¿½ï¿½
+		* @return ï¿½ï¿½ï¿½ Color ï¿½ï¿½ï¿½ó´´½ï¿½ï¿½É¹ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½ nullptrï¿½ï¿½
 		*/
 		static IrisColor* Create(unsigned char cRed, unsigned char cGreen, unsigned char cBlue, unsigned char cAlpha);
 		/**
@@ -50,8 +50,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÊÍ·ÅÒ»¸ö Color ¶ÔÏó¡£
-		* @param pColor Ö¸Ïò½«Òª±»ÊÍ·ÅµÄ Color ¶ÔÏóµÄÖ¸Õë¡£µ±¸Ãº¯Êý±»µ÷ÓÃÖ®ºó£¬´«ÈëµÄÖ¸Õë½«»á±»ÉèÖÃÎª nullptr¡£
+		* ï¿½Í·ï¿½Ò»ï¿½ï¿½ Color ï¿½ï¿½ï¿½ï¿½
+		* @param pColor Ö¸ï¿½ï¿½Òªï¿½ï¿½ï¿½Í·Åµï¿½ Color ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ë¡£ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ó£¬´ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ë½«ï¿½á±»ï¿½ï¿½ï¿½ï¿½Îª nullptrï¿½ï¿½
 		*/
 		static void Release(IrisColor*& pColor);
 
@@ -64,8 +64,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç°¶ÔÏóµÄ Red ÊôÐÔ¡£
-		* @param cRed Red ÊôÐÔµÄÖµ¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ Red ï¿½ï¿½ï¿½Ô¡ï¿½
+		* @param cRed Red ï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
 		*/
 		void SetRed(unsigned char cRed);
 		/**
@@ -75,8 +75,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* »ñÈ¡µ±Ç° Color µÄ Red Öµ¡£
-		* @return µ±Ç° Color µÄ Red Öµ¡£
+		* ï¿½ï¿½È¡ï¿½ï¿½Ç° Color ï¿½ï¿½ Red Öµï¿½ï¿½
+		* @return ï¿½ï¿½Ç° Color ï¿½ï¿½ Red Öµï¿½ï¿½
 		*/
 		unsigned char GetRed() const;
 
@@ -87,8 +87,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç°¶ÔÏóµÄ Green ÊôÐÔ¡£
-		* @param cGreen Green ÊôÐÔµÄÖµ¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ Green ï¿½ï¿½ï¿½Ô¡ï¿½
+		* @param cGreen Green ï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
 		*/
 		void SetGreen(unsigned char cGreen);
 		/**
@@ -98,8 +98,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* »ñÈ¡µ±Ç° Color µÄ Green Öµ¡£
-		* @return µ±Ç° Color µÄ Green Öµ¡£
+		* ï¿½ï¿½È¡ï¿½ï¿½Ç° Color ï¿½ï¿½ Green Öµï¿½ï¿½
+		* @return ï¿½ï¿½Ç° Color ï¿½ï¿½ Green Öµï¿½ï¿½
 		*/
 		unsigned char GetGreen() const;
 
@@ -110,8 +110,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç°¶ÔÏóµÄ Blue ÊôÐÔ¡£
-		* @param cBlue Blue ÊôÐÔµÄÖµ¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ Blue ï¿½ï¿½ï¿½Ô¡ï¿½
+		* @param cBlue Blue ï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
 		*/
 		void SetBlue(unsigned char cBlue);
 		/**
@@ -121,8 +121,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* »ñÈ¡µ±Ç° Color µÄ Blue Öµ¡£
-		* @return µ±Ç° Color µÄ Blue Öµ¡£
+		* ï¿½ï¿½È¡ï¿½ï¿½Ç° Color ï¿½ï¿½ Blue Öµï¿½ï¿½
+		* @return ï¿½ï¿½Ç° Color ï¿½ï¿½ Blue Öµï¿½ï¿½
 		*/
 		unsigned char GetBlue() const;
 
@@ -133,8 +133,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç°¶ÔÏóµÄ Alpha ÊôÐÔ¡£
-		* @param cAlpha Alpha ÊôÐÔµÄÖµ¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ Alpha ï¿½ï¿½ï¿½Ô¡ï¿½
+		* @param cAlpha Alpha ï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
 		*/
 		void SetAlpha(unsigned char cAlpha);
 		/**
@@ -144,8 +144,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* »ñÈ¡µ±Ç° Color µÄ Alpha Öµ¡£
-		* @return µ±Ç° Color µÄ Alpha Öµ¡£
+		* ï¿½ï¿½È¡ï¿½ï¿½Ç° Color ï¿½ï¿½ Alpha Öµï¿½ï¿½
+		* @return ï¿½ï¿½Ç° Color ï¿½ï¿½ Alpha Öµï¿½ï¿½
 		*/
 		unsigned char GetAlpha() const;
 
@@ -159,11 +159,11 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç° Color µÄR/G/B/A ÊôÐÔ¡£
-		* @param cRed Red ÊôÐÔµÄÖµ¡£
-		* @param cGreen Green ÊôÐÔµÄÖµ¡£
-		* @param cBlue Blue ÊôÐÔµÄÖµ¡£
-		* @param cAlpha Alpha ÊôÐÔµÄÖµ¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç° Color ï¿½ï¿½R/G/B/A ï¿½ï¿½ï¿½Ô¡ï¿½
+		* @param cRed Red ï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+		* @param cGreen Green ï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+		* @param cBlue Blue ï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+		* @param cAlpha Alpha ï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
 		*/
 		void Set(unsigned char cRed, unsigned char cGreen, unsigned char cBlue, unsigned char cAlpha);
 

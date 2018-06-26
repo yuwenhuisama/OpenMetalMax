@@ -1,17 +1,18 @@
-#include "Iris2D.h"
+#include "Common/Iris2D.h"
+#include "OpenGL/Iris2D/IrisOpenGLHelper.h"
 using namespace Iris2D;
 
 bool GameCallBack() {
 
-	auto pGraphics = IrisGraphics::Instance();
-	auto pApp = IrisApplication::Instance();
+//	auto pGraphics = IrisGraphics::Instance();
+//	auto pApp = IrisApplication::Instance();
 
 	//auto pViewport = IrisViewport::Create(20.0f, 20.0f, 600, 600);
-	auto pBitmap = IrisBitmap::Create(L"image\\kurumi.jpg");
+//	auto pBitmap = IrisBitmap::Create(L"image\\kurumi.jpg");
 	//pBitmap->HueChange(90.0f);
 	//auto pBitmap2 = IrisBitmap::Create(L"image\\leimu.jpg");
 
-	pBitmap->TextSize(nullptr, L"Hello, World!");
+//	pBitmap->TextSize(nullptr, L"Hello, World!");
 
 	//auto pSrcRect = IrisRect::Create2(10.0f, 10.0f, 300.0f, 300.0f);
 	//pViewport->SetSrcRect(pSrcRect);
@@ -28,11 +29,11 @@ bool GameCallBack() {
 	//auto pPixelColor = pBitmap->GetPixel(0, 0);
 	//pBitmap->SetPixel(0, 0, pColor);
 
-	pBitmap->DrawText(0, 0, 200, 200, L"Hello, World!", IrisBitmap::AlignType::Center);
-
-	auto pSprite = IrisSprite::Create();
-	pSprite->SetBitmap(pBitmap);
-	IrisBitmap::Release(pBitmap);
+//	pBitmap->DrawText(0, 0, 200, 200, L"Hello, World!", IrisBitmap::AlignType::Center);
+//
+//	auto pSprite = IrisSprite::Create();
+//	pSprite->SetBitmap(pBitmap);
+//	IrisBitmap::Release(pBitmap);
 
 	//IrisRect::Release(pSrcRect);
 	//IrisColor::Release(pColor);
@@ -49,20 +50,30 @@ bool GameCallBack() {
 	//pSprite->SetSrcRect(IrisRect::Create(30.0f, 30.0f, 300.0f, 600.0f));
 	//pSprite->SetTone(IrisTone::Create(128, 0, 128, 0));
 
-	auto angle = 0.0f;
-	while (!pApp->IsQuited()) {
-		//pSprite->SetAngle(angle += 2.0f);
-		pGraphics->Update();
-	}
+//	auto angle = 0.0f;
+//	while (!pApp->IsQuited()) {
+//		//pSprite->SetAngle(angle += 2.0f);
+//		pGraphics->Update();
+//	}
 
 	//BEGIN_SAFE_LOOP()
 	//	pSprite->SetAngle(angle += 1.0f);
 	//END_SAFE_LOOP()
-	IrisSprite::Release(pSprite);
+//	IrisSprite::Release(pSprite);
 
+    auto pApp = IrisApplication::Instance();
+    while (!pApp->IsQuited()) {
+        glClearColor(0.f, 0.f, 0.f, 0.f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        glfwSwapBuffers(IrisOpenGLHelper::Instance()->getWindow());
+        glfwPollEvents();
+    }
 
 	return true;
 }
+
+#if IR_API_VERSION == 1
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance, PSTR cmdLine, int showCmd) {
 
@@ -84,3 +95,26 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance, PSTR cmdLine, in
 
 	return 0;
 }
+#else
+
+int main(int argc, char* argv[]) {
+	IrisApplication::IrisAppStartInfo iasiStartInfo = {60, 60, 1600, 900, GameCallBack, L"My Iris App"};
+
+	auto pApp = IrisApplication::Instance();
+
+	if (!pApp->Initialize(&iasiStartInfo)) {
+		pApp->Release();
+		return -1;
+	}
+
+	if (!pApp->Run()) {
+		pApp->Release();
+		return -1;
+	}
+
+	pApp->Release();
+
+	return 0;
+}
+
+#endif

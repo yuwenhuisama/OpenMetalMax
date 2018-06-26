@@ -1,7 +1,7 @@
 #ifndef _H_IRISRECT_
 #define _H_IRISRECT_
 
-#include "../IrisCommon.h"
+#include "DirectX/IrisCommon.h"
 #include "Iris2D Util/IrisRefCounter.h"
 
 namespace Iris2D
@@ -14,9 +14,9 @@ namespace Iris2D
 	*/
 	/**
 	* \~chinese
-	* Iris 2D Rect Àà
+	* Iris 2D Rect ï¿½ï¿½
 	*
-	* Ò»¸ö Rect ´ú±íÁËÆÁÄ»ÉÏµÄÒ»¸ö¾ØÐÎÇøÓò¡£
+	* Ò»ï¿½ï¿½ Rect ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½Ïµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	class IrisRect : public IrisRefCounter
 	{
@@ -37,13 +37,13 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* Éú³ÉÒ»¸ö Rect¡£
+		* ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ Rectï¿½ï¿½
 		* 
-		* @param fX Éú³ÉµÄ Rect ×óÉÏ½ÇµÄ X ×ø±ê¡£
-		* @param fY Éú³ÉµÄ Rect ×óÉÏ½ÇµÄ Y ×ø±ê¡£
-		* @param fWidth Éú³ÉµÄ Rect µÄ¿í¶È¡£
-		* @param fHeight Éú³ÉµÄ Rect µÄ¸ß¶È¡£
-		* @return Éú³ÉµÄ Rect µÄÖ¸Õë¡£
+		* @param fX ï¿½ï¿½ï¿½Éµï¿½ Rect ï¿½ï¿½ï¿½Ï½Çµï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @param fY ï¿½ï¿½ï¿½Éµï¿½ Rect ï¿½ï¿½ï¿½Ï½Çµï¿½ Y ï¿½ï¿½ï¿½ê¡£
+		* @param fWidth ï¿½ï¿½ï¿½Éµï¿½ Rect ï¿½Ä¿ï¿½È¡ï¿½
+		* @param fHeight ï¿½ï¿½ï¿½Éµï¿½ Rect ï¿½Ä¸ß¶È¡ï¿½
+		* @return ï¿½ï¿½ï¿½Éµï¿½ Rect ï¿½ï¿½Ö¸ï¿½ë¡£
 		* @see Create2(float fLeft, float fTop, float fRight, float fBottom)
 		*/
 		static IrisRect* Create(float fX, float fY, float fWidth, float fHeight);
@@ -60,13 +60,13 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* Éú³ÉÒ»¸ö Rect¡£
+		* ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ Rectï¿½ï¿½
 		*
-		* @param fLeft Éú³ÉµÄ Rect ×ó±ß±ßµÄ X ×ø±ê¡£
-		* @param fTop Éú³ÉµÄ Rect ÉÏ±ß±ßµÄ Y ×ø±ê¡£
-		* @param fRight Éú³ÉµÄ Rect ÓÒ±ß±ßµÄ X ×ø±ê¡£
-		* @param fBottom Éú³ÉµÄ Rect ÏÂ±ß±ßµÄ Y ×ø±ê¡£
-		* @return Éú³ÉµÄ Rect µÄÖ¸Õë¡£
+		* @param fLeft ï¿½ï¿½ï¿½Éµï¿½ Rect ï¿½ï¿½ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @param fTop ï¿½ï¿½ï¿½Éµï¿½ Rect ï¿½Ï±ß±ßµï¿½ Y ï¿½ï¿½ï¿½ê¡£
+		* @param fRight ï¿½ï¿½ï¿½Éµï¿½ Rect ï¿½Ò±ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @param fBottom ï¿½ï¿½ï¿½Éµï¿½ Rect ï¿½Â±ß±ßµï¿½ Y ï¿½ï¿½ï¿½ê¡£
+		* @return ï¿½ï¿½ï¿½Éµï¿½ Rect ï¿½ï¿½Ö¸ï¿½ë¡£
 		* @see Create(float fX, float fY, float fWidth, float fHeight)
 		*/
 		static IrisRect* Create2(float fLeft, float fTop, float fRight, float fBottom);
@@ -78,8 +78,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÊÍ·ÅÒ»¸ö Rect ¶ÔÏó¡£
-		* @param pRect Ö¸Ïò½«Òª±»ÊÍ·ÅµÄ Rect ¶ÔÏóµÄÖ¸Õë¡£µ±¸Ãº¯Êý±»µ÷ÓÃÖ®ºó£¬´«ÈëµÄÖ¸Õë½«»á±»ÉèÖÃÎª nullptr¡£
+		* ï¿½Í·ï¿½Ò»ï¿½ï¿½ Rect ï¿½ï¿½ï¿½ï¿½
+		* @param pRect Ö¸ï¿½ï¿½Òªï¿½ï¿½ï¿½Í·Åµï¿½ Rect ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ë¡£ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ó£¬´ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ë½«ï¿½á±»ï¿½ï¿½ï¿½ï¿½Îª nullptrï¿½ï¿½
 		*/
 		static void Release(IrisRect*& pRect);
 
@@ -91,8 +91,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç° Rect ×óÉÏ½ÇµãµÄ X ×ø±ê¡£
-		* @param fX µ±Ç° Rect ×óÉÏ½ÇµãµÄ X ×ø±ê¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç° Rect ï¿½ï¿½ï¿½Ï½Çµï¿½ï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @param fX ï¿½ï¿½Ç° Rect ï¿½ï¿½ï¿½Ï½Çµï¿½ï¿½ X ï¿½ï¿½ï¿½ê¡£
 		*/
 		void SetX(float fX);
 		/**
@@ -102,8 +102,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* »ñÈ¡µ±Ç° Rect ×óÉÏ½ÇµãµÄ X ×ø±ê¡£
-		* @return µ±Ç° Rect ×óÉÏ½ÇµãµÄ X ×ø±ê¡£
+		* ï¿½ï¿½È¡ï¿½ï¿½Ç° Rect ï¿½ï¿½ï¿½Ï½Çµï¿½ï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @return ï¿½ï¿½Ç° Rect ï¿½ï¿½ï¿½Ï½Çµï¿½ï¿½ X ï¿½ï¿½ï¿½ê¡£
 		*/
 		float GetX() const;
 
@@ -114,8 +114,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç° Rect ×óÉÏ½ÇµãµÄ Y ×ø±ê¡£
-		* @param fY µ±Ç° Rect ×óÉÏ½ÇµãµÄ Y ×ø±ê¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç° Rect ï¿½ï¿½ï¿½Ï½Çµï¿½ï¿½ Y ï¿½ï¿½ï¿½ê¡£
+		* @param fY ï¿½ï¿½Ç° Rect ï¿½ï¿½ï¿½Ï½Çµï¿½ï¿½ Y ï¿½ï¿½ï¿½ê¡£
 		*/
 		void SetY(float fY);
 		/**
@@ -125,8 +125,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* »ñÈ¡µ±Ç° Rect ×óÉÏ½ÇµãµÄ Y ×ø±ê¡£
-		* @return µ±Ç° Rect ×óÉÏ½ÇµãµÄ Y ×ø±ê¡£
+		* ï¿½ï¿½È¡ï¿½ï¿½Ç° Rect ï¿½ï¿½ï¿½Ï½Çµï¿½ï¿½ Y ï¿½ï¿½ï¿½ê¡£
+		* @return ï¿½ï¿½Ç° Rect ï¿½ï¿½ï¿½Ï½Çµï¿½ï¿½ Y ï¿½ï¿½ï¿½ê¡£
 		*/
 		float GetY() const;
 
@@ -137,8 +137,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç° Rect µÄ¿í¶È¡£
-		* @param fWidth µ±Ç° Rect µÄ¿í¶È¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç° Rect ï¿½Ä¿ï¿½È¡ï¿½
+		* @param fWidth ï¿½ï¿½Ç° Rect ï¿½Ä¿ï¿½È¡ï¿½
 		*/
 		void SetWidth(float fWidth);
 		/**
@@ -148,8 +148,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç° Rect µÄ¿í¶È¡£
-		* @return µ±Ç° Rect µÄ¿í¶È¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç° Rect ï¿½Ä¿ï¿½È¡ï¿½
+		* @return ï¿½ï¿½Ç° Rect ï¿½Ä¿ï¿½È¡ï¿½
 		*/
 		float GetWidth() const;
 
@@ -160,8 +160,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç° Rect µÄ¸ß¶È¡£
-		* @param fHeight µ±Ç° Rect µÄ¸ß¶È¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç° Rect ï¿½Ä¸ß¶È¡ï¿½
+		* @param fHeight ï¿½ï¿½Ç° Rect ï¿½Ä¸ß¶È¡ï¿½
 		*/
 		void SetHeight(float fHeight);
 		/**
@@ -171,8 +171,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç° Rect µÄ¸ß¶È¡£
-		* @return µ±Ç° Rect µÄ¸ß¶È¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç° Rect ï¿½Ä¸ß¶È¡ï¿½
+		* @return ï¿½ï¿½Ç° Rect ï¿½Ä¸ß¶È¡ï¿½
 		*/
 		float GetHeight() const;
 
@@ -183,8 +183,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç° Rect ×ó±ß±ßµÄ X ×ø±ê¡£
-		* @param fLeft µ±Ç° Rect ×ó±ß±ßµÄ X ×ø±ê¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç° Rect ï¿½ï¿½ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @param fLeft ï¿½ï¿½Ç° Rect ï¿½ï¿½ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
 		*/
 		void SetLeft(float fLeft);
 		/**
@@ -194,8 +194,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* »ñÈ¡µ±Ç° Rect ×ó±ß±ßµÄ X ×ø±ê¡£
-		* @return µ±Ç° Rect ×ó±ß±ßµÄ X ×ø±ê¡£
+		* ï¿½ï¿½È¡ï¿½ï¿½Ç° Rect ï¿½ï¿½ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @return ï¿½ï¿½Ç° Rect ï¿½ï¿½ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
 		*/
 		float GetLeft() const;
 
@@ -206,8 +206,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç° Rect ÉÏ±ß±ßµÄ X ×ø±ê¡£
-		* @param fTop µ±Ç° Rect ÉÏ±ß±ßµÄ X ×ø±ê¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç° Rect ï¿½Ï±ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @param fTop ï¿½ï¿½Ç° Rect ï¿½Ï±ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
 		*/
 		void SetTop(float fTop);
 		/**
@@ -217,8 +217,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* »ñÈ¡µ±Ç° Rect ÉÏ±ß±ßµÄ X ×ø±ê¡£
-		* @return µ±Ç° Rect ÉÏ±ß±ßµÄ X ×ø±ê¡£
+		* ï¿½ï¿½È¡ï¿½ï¿½Ç° Rect ï¿½Ï±ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @return ï¿½ï¿½Ç° Rect ï¿½Ï±ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
 		*/
 		float GetTop() const;
 
@@ -229,8 +229,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç° Rect ÓÒ±ß±ßµÄ X ×ø±ê¡£
-		* @param fRight µ±Ç° Rect ÓÒ±ß±ßµÄ X ×ø±ê¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç° Rect ï¿½Ò±ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @param fRight ï¿½ï¿½Ç° Rect ï¿½Ò±ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
 		*/
 		void SetRight(float fRight);
 		/**
@@ -240,8 +240,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* »ñÈ¡µ±Ç° Rect ÓÒ±ß±ßµÄ X ×ø±ê¡£
-		* @return µ±Ç° Rect ÓÒ±ß±ßµÄ X ×ø±ê¡£
+		* ï¿½ï¿½È¡ï¿½ï¿½Ç° Rect ï¿½Ò±ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @return ï¿½ï¿½Ç° Rect ï¿½Ò±ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
 		*/
 		float GetRight() const;
 
@@ -252,8 +252,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç° Rect ÏÂ±ß±ßµÄ X ×ø±ê¡£
-		* @param fBottom µ±Ç° Rect ÏÂ±ß±ßµÄ X ×ø±ê¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç° Rect ï¿½Â±ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @param fBottom ï¿½ï¿½Ç° Rect ï¿½Â±ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
 		*/
 		void SetBottom(float fBottom);
 		/**
@@ -263,8 +263,8 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* »ñÈ¡µ±Ç° Rect ÏÂ±ß±ßµÄ X ×ø±ê¡£
-		* @return µ±Ç° Rect ÏÂ±ß±ßµÄ X ×ø±ê¡£
+		* ï¿½ï¿½È¡ï¿½ï¿½Ç° Rect ï¿½Â±ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @return ï¿½ï¿½Ç° Rect ï¿½Â±ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
 		*/
 		float GetBottom() const;
 
@@ -279,12 +279,12 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç° Rect µÄÊôÐÔ¡£
-		* @param fX µ±Ç° Rect ×óÉÏ½ÇµÄ X ×ø±ê¡£
-		* @param fY µ±Ç° Rect ×óÉÏ½ÇµÄ Y ×ø±ê¡£
-		* @param fWidth µ±Ç° Rect µÄ¿í¶È¡£
-		* @param fHeight µ±Ç° Rect µÄ¸ß¶È¡£
-		* @return µ±Ç° Rect µÄÖ¸Õë¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç° Rect ï¿½ï¿½ï¿½ï¿½ï¿½Ô¡ï¿½
+		* @param fX ï¿½ï¿½Ç° Rect ï¿½ï¿½ï¿½Ï½Çµï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @param fY ï¿½ï¿½Ç° Rect ï¿½ï¿½ï¿½Ï½Çµï¿½ Y ï¿½ï¿½ï¿½ê¡£
+		* @param fWidth ï¿½ï¿½Ç° Rect ï¿½Ä¿ï¿½È¡ï¿½
+		* @param fHeight ï¿½ï¿½Ç° Rect ï¿½Ä¸ß¶È¡ï¿½
+		* @return ï¿½ï¿½Ç° Rect ï¿½ï¿½Ö¸ï¿½ë¡£
 		* @see Set2(float fLeft, float fTop, float fRight, float fBottom)
 		*/
 		void Set(float fX, float fY, float fWidth, float fHeight);
@@ -299,12 +299,12 @@ namespace Iris2D
 		*/
 		/**
 		* \~chinese
-		* ÉèÖÃµ±Ç° Rect µÄÊôÐÔ¡£
-		* @param fLeft µ±Ç° Rect ×ó±ß±ßµÄ X ×ø±ê¡£
-		* @param fTop µ±Ç° Rect ÉÏ±ß±ßµÄ Y ×ø±ê¡£
-		* @param fRight µ±Ç° Rect ÓÒ±ß±ßµÄ X ×ø±ê¡£
-		* @param fBottom µ±Ç° Rect ÏÂ±ß±ßµÄ Y ×ø±ê¡£
-		* @return µ±Ç° Rect µÄÖ¸Õë¡£
+		* ï¿½ï¿½ï¿½Ãµï¿½Ç° Rect ï¿½ï¿½ï¿½ï¿½ï¿½Ô¡ï¿½
+		* @param fLeft ï¿½ï¿½Ç° Rect ï¿½ï¿½ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @param fTop ï¿½ï¿½Ç° Rect ï¿½Ï±ß±ßµï¿½ Y ï¿½ï¿½ï¿½ê¡£
+		* @param fRight ï¿½ï¿½Ç° Rect ï¿½Ò±ß±ßµï¿½ X ï¿½ï¿½ï¿½ê¡£
+		* @param fBottom ï¿½ï¿½Ç° Rect ï¿½Â±ß±ßµï¿½ Y ï¿½ï¿½ï¿½ê¡£
+		* @return ï¿½ï¿½Ç° Rect ï¿½ï¿½Ö¸ï¿½ë¡£
 		* @see Set(float fX, float fY, float fWidth, float fHeight)
 		*/
 		void Set2(float fLeft, float fTop, float fRight, float fBottom);

@@ -1,7 +1,7 @@
 #ifndef _H_IRISAPP_
 #define _H_IRISAPP_
 
-#include "../IrisCommon.h"
+#include "OpenGL/IrisCommon.h"
 
 /**
  * \~english
@@ -65,10 +65,16 @@ namespace Iris2D
 		* @see Initialize(const IrisAppStartInfo* pInfo)
 		*/
 		struct IrisAppStartInfo {
+		    IrisAppStartInfo() = default;
+            IrisAppStartInfo(unsigned int nX, unsigned int nY, unsigned int nWidth, unsigned int nHeight,
+                             bool (*pfFunc)(), const std::wstring &wstrTitle);
+
+#if IR_API_VERSION == 1
 			HINSTANCE m_hInstance = nullptr; 
 			/**< \~english Instance handle of Windows application taken from WinMain as a parameter. */
 			/**< \~chinese Windows 应用的 Instance 句柄，来自于 WinMain 的参数。 */
 			int nShowCmd = 0;
+#endif
 			/**< \~english Show command of Windows application taken from WinMain as a parameter. */
 			/**< \~chinese Windows 应用的 Show command，来自于 WinMain 的参数。 */
 			unsigned int m_nX = 0;
@@ -93,9 +99,10 @@ namespace Iris2D
 
 	private:
 		GameFunc m_pfGameFunc = nullptr;
+#if IR_API_VERSION == 1
 		HWND m_hWindow = nullptr;
 		int m_nShowCmd = 0;
-
+#endif
 	public:
 
 		/**
@@ -148,7 +155,11 @@ namespace Iris2D
 		* @see Initialize(const IrisAppStartInfo* pInfo)
 		* @see GameFunc
 		*/
+#if IR_API_VERSION == 1
 		bool Initialize(HINSTANCE hInstance, unsigned int nWidth, unsigned int nHeight, GameFunc pfGameFunc, const std::wstring& wszTitle);
+#else
+        bool Initialize(unsigned int nWidth, unsigned int nHeight, GameFunc pfGameFunc, const std::wstring& wszTitle);
+#endif
 
 		/**
 		* \~english
@@ -283,7 +294,9 @@ namespace Iris2D
 		float GetTimeDelta();
 
 	private:
+#if IR_API_VERSION == 1
 		static LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
+#endif
 
 	private:
 		bool InitializeWindow(const IrisAppStartInfo* pInfo);

@@ -1,13 +1,18 @@
-#include "Iris2D/IrisApp.h"
-#include "Iris2D/IrisD3DResourceManager.h"
-#include "Iris2D/IrisD2DResourceManager.h"
-#include "Iris2D/IrisViewport.h"
-#include "Iris2D Util/IrisTexture.h"
-#include "Iris2D/IrisShaders/IrisSpriteVertexShader.h"
-#include "Iris2D/IrisShaders/IrisSpritePixelShader.h"
-#include "Iris2D/IrisShaders/IrisViewportVertexShader.h"
-#include "Iris2D/IrisShaders/IrisViewportPixelShader.h"
-#include "Iris2D/IrisGraphics.h"
+#include "Common/Iris2D/IrisApp.h"
+//#include "Iris2D/IrisD3DResourceManager.h"
+//#include "Iris2D/IrisD2DResourceManager.h"
+//#include "DirectX/Iris2D/IrisViewport.h"
+//#include "Iris2D Util/IrisTexture.h"
+//#include "Iris2D/IrisShaders/IrisSpriteVertexShader.h"
+//#include "Iris2D/IrisShaders/IrisSpritePixelShader.h"
+//#include "Iris2D/IrisShaders/IrisViewportVertexShader.h"
+//#include "Iris2D/IrisShaders/IrisViewportPixelShader.h"
+//#include "DirectX/Iris2D/IrisGraphics.h"
+
+#if IR_API_VERSION == 0
+#include "OpenGL/Iris2D/IrisOpenGLHelper.h"
+#else
+#endif
 
 namespace Iris2D
 {
@@ -17,10 +22,16 @@ namespace Iris2D
 		return &pInstance;
 	}
 
+#if IR_API_VERSION == 0
+	bool IrisApplication::Initialize(unsigned int nWidth, unsigned int nHeight, GameFunc pfGameFunc, const std::wstring& wstrTitle)
+#else
 	bool IrisApplication::Initialize(HINSTANCE hInstance, unsigned int nWidth, unsigned int nHeight, GameFunc pfGameFunc, const std::wstring& wstrTitle)
+#endif
 	{
 		IrisAppStartInfo iasiInfo;
+#if IR_API_VERSION == 1
 		iasiInfo.m_hInstance = hInstance;
+#endif
 		iasiInfo.m_nWidth = nWidth;
 		iasiInfo.m_nHeight = nHeight;
 		iasiInfo.m_pfFunc = pfGameFunc;
@@ -33,10 +44,17 @@ namespace Iris2D
 	{
 		m_eAppState = IrisAppState::Uninitialized;
 
+#if IR_API_VERSION == 0
+        if (!IrisOpenGLHelper::Instance()->Initialze()) {
+			return false;
+		}
+#endif
+
 		if (!InitializeWindow(pInfo)) {
 			return false;
 		}
 
+#if IR_API_VERSION == 1
 		if (!IrisD3DResourceManager::Instance()->Initialize(m_hWindow)) {
 			return false;
 		}
@@ -44,20 +62,23 @@ namespace Iris2D
 		if (!IrisD2DResourceManager::Instance()->Initialize()) {
 			return false;
 		}
+#endif
 
-		IrisGraphics::Instance()->SetWidth(pInfo->m_nWidth);
-		IrisGraphics::Instance()->SetHeight(pInfo->m_nHeight);
-
-		if (!IrisTexture::Initialize()) {
-			return false;
-		}
-
-		if (!IrisViewport::InitGlobalViewport(pInfo->m_nWidth, pInfo->m_nHeight)) {
-			return false;
-		}
+//		IrisGraphics::Instance()->SetWidth(pInfo->m_nWidth);
+//		IrisGraphics::Instance()->SetHeight(pInfo->m_nHeight);
+//
+//		if (!IrisTexture::Initialize()) {
+//			return false;
+//		}
+//
+//
+//		if (!IrisViewport::InitGlobalViewport(pInfo->m_nWidth, pInfo->m_nHeight)) {
+//			return false;
+//		}
 
 		/* Shaders */
 		// Sprite Vertex Shader
+/*
 		auto pSpriteVertexShader = IrisSpriteVertexShader::Instance();
 		auto pD3DManager = IrisD3DResourceManager::Instance();
 		if (!pSpriteVertexShader->Initialize()) {
@@ -89,9 +110,12 @@ namespace Iris2D
 		if (!pViewportPixelShader->Initialize()) {
 			return false;
 		}
+*/
 
 		m_pfGameFunc = pInfo->m_pfFunc;
+#if IR_API_VERSION == 1
 		m_nShowCmd = pInfo->nShowCmd;
+#endif
 
 		m_eAppState = IrisAppState::Initialized;
 
@@ -101,22 +125,30 @@ namespace Iris2D
 	bool IrisApplication::Run()
 	{
 		m_eAppState = IrisAppState::Running;
+#if IR_API_VERSION == 1
 		ShowWindow(m_hWindow, m_nShowCmd);
+#endif
 
+#if IR_API_VERSION == 0
+//		IrisGraphics::Instance()->m_fLastTime = static_cast<float>(glfwGetTime());
+#else
 		IrisGraphics::Instance()->m_fLastTime = static_cast<float>(::timeGetTime());
-		IrisGraphics::Instance()->m_fLag = 0.0f;
+#endif
+//		IrisGraphics::Instance()->m_fLag = 0.0f;
 		return m_pfGameFunc();
 	}
 
 	void IrisApplication::Release()
 	{
+#if IR_API_VERSION == 1
 		IrisD3DResourceManager::Instance()->Release();
 		IrisD2DResourceManager::Instance()->Release();
-		IrisTexture::Release();
-		IrisViewport::ReleaseGlobalViewport();
-		IrisGraphics::Instance()->Release();
-		IrisSpritePixelShader::Instance()->Release();
-		IrisSpriteVertexShader::Instance()->Release();
+#endif
+		//IrisTexture::Release();
+		//IrisViewport::ReleaseGlobalViewport();
+		//IrisGraphics::Instance()->Release();
+		//IrisSpritePixelShader::Instance()->Release();
+		//IrisSpriteVertexShader::Instance()->Release();
 	}
 
 	bool IrisApplication::IsUninitialized() const
@@ -136,7 +168,11 @@ namespace Iris2D
 
 	bool IrisApplication::IsQuited() const
 	{
-		return m_eAppState == IrisAppState::Quited;
+#if IR_API_VERSION == 0
+		return m_eAppState == IrisAppState::Quited || IrisOpenGLHelper::Instance()->ShouldBeClosed();
+#else
+        return m_eAppState == IrisAppState::Quited
+#endif
 	}
 
 	void IrisApplication::Quite()
@@ -149,6 +185,7 @@ namespace Iris2D
 		return 0.0f;
 	}
 
+#if IR_API_VERSION == 1
 	LRESULT IrisApplication::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	{
 		switch (message) {
@@ -159,9 +196,11 @@ namespace Iris2D
 		}
 		return DefWindowProc(hwnd, message, wParam, lParam);
 	}
+#endif
 
 	bool IrisApplication::InitializeWindow(const IrisAppStartInfo* pInfo)
 	{
+#if IR_API_VERSION == 1
 		WNDCLASSEX wndClass = { 0 };
 		wndClass.cbSize = sizeof(WNDCLASSEX);
 		wndClass.style = CS_HREDRAW | CS_VREDRAW;
@@ -197,8 +236,18 @@ namespace Iris2D
 
 		m_hWindow = hHwnd;
 
-		//ShowWindow(hwnd, showCmd);
-
 		return true;
+#else
+		return IrisOpenGLHelper::Instance()->CreateWindow(pInfo->m_nX, pInfo->m_nY,
+														  pInfo->m_nWidth, pInfo->m_nHeight, pInfo->m_wstrTitle);
+#endif
 	}
+
+	IrisApplication::IrisAppStartInfo::IrisAppStartInfo(unsigned int nX, unsigned int nY, unsigned int nWidth,
+														unsigned int nHeight, bool (*pfFunc)(),
+														const std::wstring &wstrTitle) : m_nX(nX), m_nY(nY),
+																						 m_nWidth(nWidth),
+																						 m_nHeight(nHeight),
+																						 m_pfFunc(pfFunc),
+																						 m_wstrTitle(wstrTitle) {}
 }

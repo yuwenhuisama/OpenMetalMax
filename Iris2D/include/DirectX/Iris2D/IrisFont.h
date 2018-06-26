@@ -2,7 +2,7 @@
 #define _H_IRISFONT_
 
 #include "Iris2D Util/IrisRefCounter.h"
-#include "../IrisCommon.h"
+#include "../../DirectX/IrisCommon.h"
 
 namespace Iris2D
 {
