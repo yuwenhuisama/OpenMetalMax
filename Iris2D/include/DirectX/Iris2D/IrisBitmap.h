@@ -1,9 +1,8 @@
 #ifndef _H_IRISBITMAP_
 #define _H_IRISBITMAP_
 
-#include "DirectX/IrisCommon.h"
-#include "Iris2D Util/IrisRefCounter.h"
-#include "Iris2D Util/IrisDataConvertHelper.h"
+#include "Common/IrisCommon.h"
+#include "Common/Iris2DUtil/IrisRefCounter.h"
 
 #undef DrawText
 

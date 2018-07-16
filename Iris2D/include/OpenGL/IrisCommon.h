@@ -6,6 +6,8 @@
 #define _H_IRISCOMMON_
 
 #include "Common/Iris2DCompileConfigure.h"
+#include "Common/Iris2DUtil/IrisResult.h"
+
 #include <string>
 #include <unordered_set>
 
@@ -27,16 +29,5 @@
 		} \
 		__pGraphics__->UpdateNoLock(); \
 	}
-
-
-namespace Iris2D {
-    template <class T>
-    void SafeCOMRelease(T*& pPointer) {
-        if (pPointer) {
-            pPointer->Release();
-            pPointer = nullptr;
-        }
-    }
-}
 
 #endif

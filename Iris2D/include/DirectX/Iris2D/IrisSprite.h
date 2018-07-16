@@ -2,7 +2,10 @@
 
 #include "DirectX/IrisCommon.h"
 //#include "IrisTone.h"
+#if IR_API_VERSION == 0
+#else
 #include "Iris2D Util/IrisSpriteShaderBuffers.h"
+#endif
 
 namespace Iris2D
 {
@@ -11,7 +14,9 @@ namespace Iris2D
 	class IrisColor;
 	class IrisViewport;
 	typedef IrisColor IrisTone;
-	__declspec(align(16)) 
+#ifdef _MSC_VER
+	__declspec(align(16))
+#endif
 	/**
 	* \~english 
 	* Sprite class of Iris 2D

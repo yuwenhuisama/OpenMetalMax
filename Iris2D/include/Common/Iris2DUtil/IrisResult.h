@@ -1,7 +1,7 @@
 #ifndef _H_IRISRESULT
 
 #include <string>
-#include "../../Common/Iris2DCompileConfigure.h"
+#include "Common/Iris2DCompileConfigure.h"
 
 #define IR_SUCCESS(r) ((r).resultType == IrisResultType.SUCCESS) 
 #define IR_FAILD(r) ((r).resultType != IrisResultType.SUCCESS)

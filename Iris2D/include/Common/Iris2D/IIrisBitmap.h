@@ -1,0 +1,12 @@
+//
+// Created by Huisama on 2018/6/26.
+//
+
+#ifndef IRIS2D_CHERRY_SPINACH_IIRISBITMAP_H
+#define IRIS2D_CHERRY_SPINACH_IIRISBITMAP_H
+
+class IIrisBitmap {
+
+};
+
+#endif //IRIS2D_CHERRY_SPINACH_IIRISBITMAP_H
